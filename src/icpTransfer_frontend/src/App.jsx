@@ -1,30 +1,41 @@
-import { useState } from 'react';
-import { icpTransfer_backend } from 'declarations/icpTransfer_backend';
+import { useEffect, useState } from 'react';
+import { canisterId, idlFactory, createActor } from '../../declarations/icpTransfer_backend';
+import { ConnectBtn } from './components/ConnectBtn';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    icpTransfer_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+  const [isPlugAvailable, setIsPlugAvailable] = useState(false)
+  const [principal, setPrincipal] = useState(null)
+  const [accountId, setAccountId] = useState(null)
+  const [isConnected, setIsConnected] = useState(false)
+  const [actor, setActor] = useState(null)
+
+
+  useEffect(() => {
+    async function init() {
+      if (window.ic.plug) {
+        setIsPlugAvailable(true)
+        const connected = await window.ic.plug.isConnected();
+        setIsConnected(connected)
+        if (connected) {
+          setPrincipal(window.ic.plug.principalId)
+          setAccountId(window.ic.plug.accountId)
+          const actor = await window.ic.plug.createActor({ canisterId: canisterId, interfaceFactory: idlFactory });
+          setActor(actor)
+        }
+      }
+    }
+    init()
+  }, [])
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <>
+      <ConnectBtn isConnected={isConnected} principal={principal} setPrincipal={setPrincipal} setAccountId={setAccountId} setIsConnected={setIsConnected} setActor={setActor} />
+      <br></br>
+      <div>
+        
+      </div>
+    </>
   );
 }
 
