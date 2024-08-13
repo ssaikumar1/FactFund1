@@ -82,7 +82,8 @@ actor IcpTransfer_backend {
         fromNat(32, Nat64.toNat(n));
     };
 
-    public shared ({ caller }) func createProposal(name : Text, title : Text, description : Text, amount_required : Nat64, image : Blob) : async Result.Result<Nat, Text> {
+    public func createProposal(name : Text, title : Text, description : Text, amount_required : Nat64, image : Blob) : async Result.Result<Nat, Text> {
+        let caller = Principal.fromText("recv4-pufm4-ddgc3-m6whc-kh75g-hfklr-oj46z-bxn2y-coejw-xt5kw-xae");
         let proposal_size = Vector.size<Proposal>(proposals);
         let proposal_subaccount = Blob.fromArray(fromNat64(Nat64.fromNat(proposal_size)));
         let current_round = (await LedgerIndex.status()).num_blocks_synced - 1;
@@ -117,7 +118,14 @@ actor IcpTransfer_backend {
                     return #err("No Proposal is available with this id");
                 };
                 case (?proposal) {
-                    return #ok(proposal);
+                    switch (await syncTransactions(id)) {
+                        case (#ok proposal) {
+                            return #ok(proposal);
+                        };
+                        case (#err message) {
+                            return #err("Error Occured While Syncing Transactions: " #message);
+                        };
+                    };
                 };
             };
         };
@@ -139,7 +147,7 @@ actor IcpTransfer_backend {
                         account = account;
                     });
                     var accid = Text.toLowercase(Hex.encode(Blob.toArray(account)));
-                    Debug.print(debug_show (account) # debug_show (balance) # debug_show (accid) # debug_show (Principal.fromActor(IcpTransfer_backend)));
+                    Debug.print(debug_show (account) # debug_show (balance) # debug_show (accid) # debug_show(Principal.fromActor(IcpTransfer_backend)));
                     return #ok("knk");
                 };
             };
@@ -147,7 +155,7 @@ actor IcpTransfer_backend {
     };
 
     public func actorAccount() : async Text {
-        return Hex.encode(Blob.toArray(Principal.toLedgerAccount(Principal.fromActor(IcpTransfer_backend), null)));
+        return Hex.encode(Blob.toArray(Principal.toLedgerAccount(Principal.fromActor(IcpTransfer_backend),null)));
     };
 
     public query func getLatestProposals(len : Nat) : async Result.Result<[Proposal], Text> {
@@ -165,7 +173,8 @@ actor IcpTransfer_backend {
         };
     };
 
-    public shared query ({ caller }) func getLatestMyProposals(len : Nat) : async Result.Result<[Proposal], Text> {
+    public query func getLatestMyProposals(len : Nat) : async Result.Result<[Proposal], Text> {
+        let caller = Principal.fromText("recv4-pufm4-ddgc3-m6whc-kh75g-hfklr-oj46z-bxn2y-coejw-xt5kw-xae");
         var size = Vector.size<Proposal>(proposals);
         if (size > 0) {
             var arr = Vector.toArray<Proposal>(proposals);
@@ -299,7 +308,8 @@ actor IcpTransfer_backend {
         };
     };
 
-    public shared ({ caller }) func claimProposal(proposalId : Nat, p : Principal) : async Result.Result<IcpLedger.BlockIndex, Text> {
+    public shared ({caller}) func claimProposal(proposalId : Nat, p : Principal) : async Result.Result<IcpLedger.BlockIndex, Text> {
+        let caller = Principal.fromText("recv4-pufm4-ddgc3-m6whc-kh75g-hfklr-oj46z-bxn2y-coejw-xt5kw-xae");
         var size = Vector.size<Proposal>(proposals);
         if (proposalId >= size) {
             return #err("No Proposal is available with this id");
