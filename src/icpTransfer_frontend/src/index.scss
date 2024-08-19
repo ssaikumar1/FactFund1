@@ -52,6 +52,16 @@ nav {
   padding-left: 20px;
   
 }
+.social {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  padding-left: 650px;
+  justify-content: space-between;
+}
+.usecase{
+  color: #fff;
+}
 
 
 #navbar  li :hover{
@@ -343,7 +353,7 @@ body {
 .section {
   margin: 40px 0;
   padding: 20px;
-  background: rgb(182, 227, 194);
+ 
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -530,7 +540,7 @@ color: #fff;
   box-shadow: 0 px 0px rgba(0, 0, 0, 0);
   overflow: hidden;
   width: 280px;
-  height: 320px;
+  height: 360px;
   transition: transform 0.3s ease-in-out;
   text-decoration: none;
 }
@@ -573,6 +583,7 @@ color: #fff;
   color: #ffffff;
   border-radius: 10px;
   margin-top: 20px;
+  
 }
 
 .left-section {
@@ -595,7 +606,7 @@ color: #fff;
   margin: 0;
 }
 
-.proposal-story p, .proposal-donators p {
+.proposal-story , .proposal-donators  {
   margin-top: 25px;
   color: #fff;
   width: 100%;
@@ -614,7 +625,7 @@ color: #fff;
   color: #ffffff;
   width: 100%;
   
-  padding: 10px;
+
   
 }
 
@@ -623,6 +634,7 @@ color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
 }
 
 .proposal-funding {
@@ -651,12 +663,12 @@ color: #fff;
   width: 100%;
   padding: 15px;
   border-radius: 5px;
-  background-color: #3bcc92;
+  background-color: #62d9aa;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 .fund-button:hover {
-  background-color: #4c4ccc;
+  background-color: #3bcc92;
 }

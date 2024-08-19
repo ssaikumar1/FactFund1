@@ -53,24 +53,30 @@ const Landing = () => {
       <br></br>
       <br></br>
    
-      
-      <section className="use-cases section">
+      <div className='usecase'> 
         <h2>Use Cases</h2>
-        <ul>
+        <br></br>
           <li><strong>Non-Profit Projects:</strong> Support social and charitable projects, provide disaster relief funds, promote pet adoption and feeding initiatives, contribute to temple funds, and other community-driven causes. ❤️</li>
-          <li><strong>Startup Funding:</strong> Seed funding for innovative and promising startups. 🚀</li>
-          <li><strong>Community Initiatives:</strong> Support local projects that drive community engagement and development. 🌱</li>
-        </ul>
-      </section>
+          <br></br>
+          
+          <li style={{paddingRight: 635}}><strong>Community Initiatives:</strong> Support local projects that drive community engagement and development. 🌱</li>
+        
+      </div>
       
-      <div className='join'>
-        <h2>Join Us Today</h2>
-        <p>Be part of a revolutionary change in crowdfunding. Support the projects you believe in, track your donations, and be assured of transparent and democratic decision-making.</p>
-        </div>
+    
     
       <footer className="footer">
-        <h2>Contact Us</h2>
-        <p>Have questions? Want to learn more? <a href="mailto:info@factfund.com">Contact Us</a></p>
+        <h2>Join Us Today</h2>
+         <br></br>
+        <p style={{paddingRight : 100}}>Be part of a revolutionary change in crowdfunding. Support the campaigns or proposals you believe in, track your donations, and be assured of transparent and democratic decision-making.</p>
+        <br></br>
+        <div className='social' style={{justifyContent : 'space-between'}}>
+        <a href='https://x.com/fact_fund'> <img src='twitter.png' alt='twitter' style={{width : 40 , height : 40 }}></img> </a>
+        <a href='https://www.linkedin.com/company/factfund/'> <img src='linkedin.png' alt='linkedin' style={{width : 40 , height : 40}}></img> </a>
+        <a href='https://www.instagram.com/factfund.io/'> <img src='instagram.png' alt='insta'style={{width : 40 , height : 40}} ></img> </a>
+        </div>
+        <br>
+        </br>
       </footer>
     </div>
   );

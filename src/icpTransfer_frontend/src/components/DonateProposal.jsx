@@ -138,7 +138,7 @@ const DonateProposal = ({ actor, notify, principal }) => {
             {proposal.title}</p>
           <p>By - {proposal.name}</p>
           <div className="proposal-story">
-            <p>Story <div></div>
+            <p>Story: <div></div>
               <div></div>
               {proposal.description}</p>
           </div>
@@ -178,9 +178,9 @@ const DonateProposal = ({ actor, notify, principal }) => {
 
 
         <div className="proposal-donators">
-          <p><strong>Donators</strong></p>
+          <p><strong>Donators:</strong></p>
           {proposal.donations.map((donation, index) => {
-            return <div><>{donation.account}</><br></br><>{Number(donation.amount.e8s) / 10 ** 8}</><br></br><a target='_blank' href={"https://dashboard.internetcomputer.org/transaction/" + Number(donation.transaction_id)}>{Number(donation.transaction_id)}</a><br></br><br></br></div>
+            return <div><>{donation.account}</><br></br><strong>Amount: </strong><>{Number(donation.amount.e8s) / 10 ** 8}</><br></br><strong>Click To Verify Transaction: </strong><a style={{color:'orange',textDecoration:'none'}} target='_blank' href={"https://dashboard.internetcomputer.org/transaction/" + Number(donation.transaction_id)}>{Number(donation.transaction_id)}</a><br></br><br></br></div>
           })}
         </div>
 

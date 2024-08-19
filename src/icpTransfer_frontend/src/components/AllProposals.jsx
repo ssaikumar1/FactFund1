@@ -60,6 +60,10 @@ const Proposals = ({ notify, actor }) => {
               <p><strong>Goal:</strong> {Number(proposal.amount_required)} ICP</p>
               <p><strong>By:</strong> {proposal.name}</p>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            
           </Link>
         ))}
       </div>
