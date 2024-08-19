@@ -4,7 +4,7 @@ import PlugConnect from '@psychedelic/plug-connect';
 export const ConnectBtn = ({ isConnected, principal, setPrincipal, setAccountId, setIsConnected, setActor }) => {
     const whitelist = [canisterId];
 
-    return isConnected ? <button>{principal}</button> : <PlugConnect whitelist={whitelist} onConnectCallback={
+    return <PlugConnect title={isConnected?"Connected as "+principal.substr(0,5)+"-xxxxx-"+principal.substr(principal.length-9,9):"Connect to Plug"}  whitelist={whitelist} onConnectCallback={
         async () => {
             setIsConnected(true)
             setPrincipal(window.ic.plug.principalId)
