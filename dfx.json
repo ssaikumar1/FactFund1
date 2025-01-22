@@ -16,37 +16,26 @@
     },
     "icp_ledger_canister": {
       "type": "custom",
-      "candid": "https://raw.githubusercontent.com/dfinity/ic/94fd38099f0e63950eb5d5673b7b9d23780ace2d/rs/rosetta-api/icp_ledger/ledger.did",
-      "wasm": "https://download.dfinity.systems/ic/94fd38099f0e63950eb5d5673b7b9d23780ace2d/canisters/ledger-canister.wasm.gz",
+      "candid": "https://raw.githubusercontent.com/dfinity/ic/233c1ee2ef68c1c8800b8151b2b9f38e17b8440a/rs/ledger_suite/icp/ledger.did",
+      "wasm": "https://download.dfinity.systems/ic/233c1ee2ef68c1c8800b8151b2b9f38e17b8440a/canisters/ledger-canister.wasm.gz",
       "remote": {
         "id": {
           "ic": "ryjl3-tyaaa-aaaaa-aaaba-cai",
           "playground": "ryjl3-tyaaa-aaaaa-aaaba-cai"
         }
-      }
+      },
+      "init_arg" : "(variant { Init = record { minting_account = \"e3a5333adf4adde83782cdd3de9c1cf2ae78ce223f5883e007ebfc007db70f38\"; initial_values = vec { record { \"98da03def2a04f2297eb45fbcbff20ca0f14415709da55aa91a553b2df4f806a\"; record { e8s = 10_000_000_000 : nat64; }; }; }; send_whitelist = vec {}; transfer_fee = opt record { e8s = 10_000 : nat64; }; token_symbol = opt \"LICP\"; token_name = opt \"Local ICP\"; } })"
     },
     "icp_index_canister": {
       "type": "custom",
-      "candid": "https://raw.githubusercontent.com/dfinity/ic/94fd38099f0e63950eb5d5673b7b9d23780ace2d/rs/rosetta-api/icp_ledger/index/index.did",
-      "wasm": "https://download.dfinity.systems/ic/94fd38099f0e63950eb5d5673b7b9d23780ace2d/canisters/ic-icp-index-canister.wasm.gz",
+      "candid": "https://raw.githubusercontent.com/dfinity/ic/233c1ee2ef68c1c8800b8151b2b9f38e17b8440a/rs/ledger_suite/icp/index/index.did",
+      "wasm": "https://download.dfinity.systems/ic/233c1ee2ef68c1c8800b8151b2b9f38e17b8440a/canisters/ic-icp-index-canister.wasm.gz",
       "remote": {
         "id": {
           "ic": "qhbym-qaaaa-aaaaa-aaafq-cai",
           "playground": "qhbym-qaaaa-aaaaa-aaafq-cai"
         }
       }
-    },
-    "internet_identity": {
-      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
-      "frontend": {},
-      "remote": {
-        "id": {
-          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai",
-          "playground": "rdmx6-jaaaa-aaaaa-aaadq-cai"
-        }
-      },
-      "type": "custom",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
     }
   },
   "defaults": {
