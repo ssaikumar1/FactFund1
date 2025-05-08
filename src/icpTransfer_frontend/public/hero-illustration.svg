@@ -1,0 +1,31 @@
+
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="500" fill="white" fill-opacity="0"/>
+  <circle cx="300" cy="250" r="200" fill="#E2E8F0" fill-opacity="0.5"/>
+  <path d="M300 100 L400 200 L300 300 L200 200 Z" fill="#0A6E74" fill-opacity="0.8"/>
+  <path d="M300 150 L350 200 L300 250 L250 200 Z" fill="white"/>
+  <circle cx="300" cy="200" r="20" fill="#FF7E67"/>
+  <path d="M150 250 C150 200, 250 150, 300 200 C350 250, 450 200, 450 250" stroke="#7FFFD4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M200 300 L250 350 L300 325 L350 350 L400 300" stroke="#0A6E74" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="200" cy="300" r="10" fill="#FF7E67"/>
+  <circle cx="250" cy="350" r="10" fill="#FF7E67"/>
+  <circle cx="300" cy="325" r="10" fill="#FF7E67"/>
+  <circle cx="350" cy="350" r="10" fill="#FF7E67"/>
+  <circle cx="400" cy="300" r="10" fill="#FF7E67"/>
+  <g transform="translate(450, 150)">
+    <rect x="0" y="0" width="60" height="80" rx="5" fill="#0A6E74"/>
+    <rect x="10" y="10" width="40" height="10" rx="2" fill="white"/>
+    <rect x="10" y="30" width="40" height="10" rx="2" fill="white"/>
+    <rect x="10" y="50" width="40" height="10" rx="2" fill="white"/>
+  </g>
+  <g transform="translate(100, 150)">
+    <circle cx="30" cy="30" r="30" fill="#FF7E67"/>
+    <path d="M15 30 L25 40 L45 20" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(150, 350)">
+    <rect x="0" y="0" width="300" height="40" rx="20" fill="#0A6E74" fill-opacity="0.2"/>
+    <circle cx="30" cy="20" r="15" fill="#0A6E74"/>
+    <rect x="60" y="15" width="200" height="10" rx="5" fill="#0A6E74" fill-opacity="0.5"/>
+  </g>
+</svg>
+
